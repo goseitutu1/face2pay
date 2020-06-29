@@ -36,6 +36,8 @@ dependencies:
   path_provider: ^1.6.9
   local_auth: ^0.6.2+3
   image_picker: ^0.6.7+2
+  firebase_ml_vision: ^0.9.4
+
 
 dev_dependencies:
   flutter_test:

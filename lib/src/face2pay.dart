@@ -9,6 +9,7 @@ import 'screens/products.dart';
 import 'screens/cart.dart';
 import 'screens/check_out.dart';
 import 'screens/password_recovery.dart';
+import 'screens/local_auth.dart';
 import 'screens/transaction.dart';
 
 class Face2Pay extends StatelessWidget {
@@ -111,6 +112,14 @@ Route routes(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) {
           return PasswordRecovery();
+        }
+      );
+      break;
+
+       case '/local_auth':
+      return MaterialPageRoute(
+        builder: (context) {
+          return FacePage();
         }
       );
       break;
