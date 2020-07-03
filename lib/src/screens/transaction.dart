@@ -67,45 +67,4 @@ class Transaction extends StatelessWidget {
     );
   }
   
-  // Widget _transactionTile(BuildContext context){
-  //   return StreamBuilder(
-  //         stream: checkoutBloc.transList,
-  //         builder: (context, AsyncSnapshot<List<num>> snapshot) {
-  //           if(!snapshot.hasData){
-  //             return Center(child: Text('No list'),);
-  //           }
-  //           return ListView.builder(
-  //             itemCount: snapshot.data.length,
-  //             itemBuilder: (context, int index) {
-  //               if(!snapshot.hasData){
-  //                 return Center(child: Text('No transaction'),);
-  //               }
-  //               return ListTile(
-  //                 leading: Text('${index+1}'),
-  //                 title: Text(
-  //                   'Items Purchased : ${snapshot.data[index]}',
-  //                   style: TextStyle(
-  //                   color: Colors.black,
-  //                   fontFamily: 'Montserrat',
-  //                   fontSize: 15.0,
-  //                   fontWeight: FontWeight.bold,
-  //                 ),
-  //                ),
-  //                trailing: Text(
-  //                   '\$ ${snapshot.data[index+1]}',
-  //                   style: TextStyle(
-  //                   color: Colors.red,
-  //                   fontFamily: 'Montserrat',
-  //                   fontSize: 15.0,
-  //                   fontWeight: FontWeight.bold,
-  //                 ),
-  //                ),
-  //              );
-  //             }
-  //           );
-  //         }
-  //       );
-    
-  // }
-
 }
