@@ -62,7 +62,6 @@ class SignUpBloc{
     _emailController.close();
     _passwordController.close();
     _confirmPasswordController.close();
-    _usernameController.close();
   }
 }
 
