@@ -8,6 +8,7 @@ class HomeBloc extends Object {
 
   HomeProvider _homeProvider = HomeProvider(); 
   final _homeController = BehaviorSubject<List<HomeModel>>(); 
+  
   Stream<List<HomeModel>> get outStream => _homeController.stream;
   Sink<List<HomeModel>> get _inStream => _homeController.sink;
   

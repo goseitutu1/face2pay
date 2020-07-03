@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import '../blocs/sign_in_bloc.dart';
 import '../widgets/text_feild.dart';
@@ -80,14 +80,14 @@ class SignInState extends State<SignIn> {
                             _showSpinner = true;
                           });
                           try{
-                            // final _auth = FirebaseAuth.instance;
-                            // final response = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
-                            // if(response != null){
-                            //     Navigator.pushNamed(context, '/home');
-                            // }
-                            if(true){
+                            final _auth = FirebaseAuth.instance;
+                            final response = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
+                            if(response != null){
                                 Navigator.pushNamed(context, '/home');
                             }
+                            // if(true){
+                            //     Navigator.pushNamed(context, '/home');
+                            // }
                             setState(() {
                               _showSpinner = false;
                             });

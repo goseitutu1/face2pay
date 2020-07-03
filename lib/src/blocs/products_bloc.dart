@@ -7,6 +7,7 @@ import '../providers/products.dart';
 import '../models/categories.dart';
 
 class ProductsBloc extends Object implements Searcher<ProductsModel>{
+  
   final _outProducts = BehaviorSubject<List<ProductsModel>>();
   ProductsModel _product = ProductsModel();
   final _productsProvider = ProductsProviders();

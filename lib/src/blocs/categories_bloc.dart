@@ -6,10 +6,11 @@ import '../providers/categories.dart';
 import '../models/categories.dart';
 
 class CategoriesBloc extends Object implements Searcher<CategoriesModel> {
+
   final _outCategories = BehaviorSubject<List<CategoriesModel>>();
   final _categoriesProvider = CategoriesProvider();
   List<CategoriesModel> _categoriesList = List();
-   
+  
   Stream<List<CategoriesModel>> get outCategories => _outCategories.stream;
   
   CategoriesBloc() {
@@ -32,8 +33,7 @@ class CategoriesBloc extends Object implements Searcher<CategoriesModel> {
 
   @override
   get onDataFiltered => _outCategories.add;
-
-     
+  
   @override
   get data => _categoriesList;
 

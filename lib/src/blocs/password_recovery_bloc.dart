@@ -2,6 +2,7 @@ import 'package:rxdart/rxdart.dart';
 import 'dart:async';
 
 class PasswordRecoveryBloc{
+  
   final _emailController = BehaviorSubject<String>();
 
   //Add string to the stream.
