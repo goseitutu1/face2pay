@@ -25,7 +25,7 @@ class Transaction extends StatelessWidget {
           stream: checkoutBloc.transList,
           builder: (context, AsyncSnapshot<List<TransactionModel>> snapshot) {
             if(!snapshot.hasData){
-              return Center(child: Text('No list'),);
+              return Center(child: Text('No transaction'),);
             }
             return ListView.builder(
               itemCount: snapshot.data.length,
