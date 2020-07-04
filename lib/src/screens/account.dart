@@ -22,7 +22,7 @@ class AccountState extends State<Account> {
   final picker = ImagePicker();
 
   Future _getImage() async {
-    var _pickedImage = await picker.getImage(source: ImageSource.gallery);
+    var _pickedImage = await picker.getImage(source: ImageSource.camera);
     
   setState(() {
       accountBloc.image = File(_pickedImage.path);
