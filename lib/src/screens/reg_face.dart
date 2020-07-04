@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';
+import '../blocs/sign_up_bloc.dart';
 
 class RegisterFace extends StatefulWidget {
   RegisterFaceState createState() {
@@ -14,12 +15,16 @@ class RegisterFaceState extends State<RegisterFace> {
   final picker = ImagePicker();
 
   Future _getImage() async {
+    File _image;
     var _pickedImage = await picker.getImage(source: ImageSource.camera);
     
   setState(() {
-      File _image = File(_pickedImage.path);
+      _image = File(_pickedImage.path);
       print('image: $_image');
     });
+    
+    // _image;
+    String _email = signUpBloc.getEmail();
   }
 
   Widget build(BuildContext context) {
