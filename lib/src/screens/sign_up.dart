@@ -56,7 +56,9 @@ class SignUpState extends State<SignUp> {
                   _confirmPasswordFeild(context),
                   SizedBox(height: 20.0),
                   ListTile(
-                    onTap: (){print('reg face');},
+                    onTap: (){
+                      Navigator.pushNamed(context, '/registerface');
+                    },
                     title: FacialIcon(description: 'Register face'),
                   ),
                   SizedBox(height: 10.0),

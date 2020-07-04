@@ -130,8 +130,7 @@ class SignInState extends State<SignIn> {
                   SizedBox(height: 5.0),
                   ListTile(
                     onTap: () async {
-                      print('face');
-                      Navigator.pushNamed(context, '/local_auth');
+                      Navigator.pushNamed(context, '/facesignin');
                     },
                     title: FacialIcon(description: 'Use facial recognition'),
                   ),

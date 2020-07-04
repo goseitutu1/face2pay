@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../screens/home.dart';
 import '../screens/categories.dart';
 import '../screens/account.dart';
-// import '../screens/help.dart';
 
 class BottomNavigator extends StatefulWidget {
 
@@ -18,7 +17,6 @@ class BottomNavigatorState extends State<BottomNavigator> {
     Home(),
     Categories(),
     Account(),
-    // Help(),
    ];
  
   Widget build(BuildContext context) {
@@ -39,10 +37,6 @@ class BottomNavigatorState extends State<BottomNavigator> {
               icon: Icon(Icons.perm_identity),
               title: Text('Account'),
             ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.help),
-            //   title: Text('Help'),
-            // ),
           ],
           currentIndex: _currentScreen,
           selectedItemColor: Colors.red,
