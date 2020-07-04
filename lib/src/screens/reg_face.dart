@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';
+// import '../models/reg_face.dart';
 // import '../blocs/sign_up_bloc.dart';
 
 class RegisterFace extends StatefulWidget {
