@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';
-import '../blocs/sign_up_bloc.dart';
+// import '../blocs/sign_up_bloc.dart';
 
 class RegisterFace extends StatefulWidget {
   RegisterFaceState createState() {
@@ -24,7 +24,7 @@ class RegisterFaceState extends State<RegisterFace> {
     });
     
     // _image;
-    String _email = signUpBloc.getEmail();
+    // String _email = signUpBloc.getEmail();
   }
 
   Widget build(BuildContext context) {
