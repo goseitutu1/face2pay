@@ -93,6 +93,7 @@ class SignInState extends State<SignIn> {
                             });
                           }
                           catch(e){
+                            print(e);
                             setState(() {
                               _showSpinner = false;
                             });
