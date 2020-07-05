@@ -1,7 +1,10 @@
 import 'package:rxdart/rxdart.dart';
 import 'dart:async';
+import 'dart:io';
 
 class SignUpBloc{
+  
+  File regImage;
   final _emailController = BehaviorSubject<String>();
   static BehaviorSubject _passwordController = BehaviorSubject<String>();
   final _confirmPasswordController = BehaviorSubject<String>();

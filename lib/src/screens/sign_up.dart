@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'dart:io';
 import '../blocs/sign_up_bloc.dart';
 import '../widgets/material_button.dart';
 import '../widgets/text_feild.dart';
@@ -13,6 +16,19 @@ class SignUp extends StatefulWidget {
 }
 
 class SignUpState extends State<SignUp> {
+
+  final picker = ImagePicker();
+  Future _getImage() async {
+    var _pickedImage = await picker.getImage(source: ImageSource.camera);
+    
+  setState(() {
+      signUpBloc.regImage = File(_pickedImage.path);
+      print('image: $signUpBloc.regImage');
+    });
+    
+    // _image;
+    // String _email = signUpBloc.getEmail();
+  }
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _showSpinner = false; 
@@ -56,9 +72,8 @@ class SignUpState extends State<SignUp> {
                   _confirmPasswordFeild(context),
                   SizedBox(height: 20.0),
                   ListTile(
-                    onTap: (){
-                      Navigator.pushNamed(context, '/registerface');
-                    },
+                    onTap:  _getImage,
+                      // Navigator.pushNamed(context, '/registerface');
                     title: FacialIcon(description: 'Register face'),
                   ),
                   SizedBox(height: 10.0),
