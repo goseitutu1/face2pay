@@ -5,7 +5,7 @@ class FacialIcon extends StatelessWidget{
   final String description;
 
   FacialIcon({this.description});
-//  accountBloc.image == null ? null : FileImage(accountBloc.image),
+
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
