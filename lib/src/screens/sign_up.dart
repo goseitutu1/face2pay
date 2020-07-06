@@ -20,7 +20,7 @@ class SignUpState extends State<SignUp> {
 
   final picker = ImagePicker();
   bool  _imageUploaded = false;
-  // String _downloadImageURL;
+  String _downloadImageURL;
   bool _showSpinner = false; 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   StorageReference _reference = FirebaseStorage.instance.ref().child(signUpBloc.regImage.toString());
@@ -44,20 +44,14 @@ class SignUpState extends State<SignUp> {
     });
     print('taskSnapshot: ${taskSnapshot.toString()}');
     print('$_imageUploaded');
+    _downloadImageURL = await taskSnapshot.ref.getDownloadURL();
+    print('downloadedImage: $_downloadImageURL');
     // String _downloadAddress = await _reference.getDownloadURL();
     // setState(() {
     //   _downloadImageURL = _downloadAddress;
     // });
     // print('imageurl: $_downloadImageURL');
   }
-
-  // Future _downloadImageURL() async {
-  //   String _downloadAddress = await _reference.getDownloadURL();
-
-  //   setState(() {
-  //     _downloadImageURL = _downloadAddress;
-  //   });
-  // }
 
   Widget build(BuildContext context){
     return Scaffold(
