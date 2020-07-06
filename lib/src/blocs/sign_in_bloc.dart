@@ -1,7 +1,9 @@
 import 'package:rxdart/rxdart.dart';
 import 'dart:async';
+import 'dart:io';
 
 class SignInBloc{
+  File image;
   final _emailController = BehaviorSubject<String>();
   final _passwordController = BehaviorSubject<String>();
 

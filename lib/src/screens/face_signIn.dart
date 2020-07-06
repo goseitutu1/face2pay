@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:async';
 import 'dart:io';
+import '../blocs/sign_in_bloc.dart';
 
 class FaceSignIn extends StatefulWidget {
   FaceSignInState createState() {
@@ -11,19 +13,49 @@ class FaceSignIn extends StatefulWidget {
 
 class FaceSignInState extends State<FaceSignIn> {
 
+  bool  _imageUploaded = false;
+  String _downloadImageURL;
+  bool _showSpinner = false; 
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  StorageReference _reference = FirebaseStorage.instance.ref().child(signinBloc.image.toString());
   final picker = ImagePicker();
 
   Future _getImage() async {
     var _pickedImage = await picker.getImage(source: ImageSource.camera);
     
   setState(() {
-      File _image = File(_pickedImage.path);
-      print('image: $_image');
+      signinBloc.image = File(_pickedImage.path);
+      print('image: ${signinBloc.image}');
     });
+  }
+
+  Future _uploadImage() async {
+    StorageUploadTask uploadTask = _reference.putFile(signinBloc.image);
+    StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+    setState(() {
+      _imageUploaded = true;
+    });
+    print('taskSnapshot: $taskSnapshot');
+    String _downloadAddress = await _reference.getDownloadURL();
+    setState(() {
+      _downloadImageURL = _downloadAddress;
+    });
+    print('imageurl: $_downloadImageURL');
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('FACIAL RECOGNITION',
+        style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Montserrat',
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.0,
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _getImage,
         backgroundColor: Color(0xFFEB1555),
@@ -33,7 +65,12 @@ class FaceSignInState extends State<FaceSignIn> {
         elevation: 5.0,
         margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Center(
-          child: Text('Take a face picture')
+          child: Column(
+            children: <Widget>[
+              Text('Take a face picture'),
+              SizedBox(height: 20.0),
+            ],
+          ),
         ),
       ),
     );

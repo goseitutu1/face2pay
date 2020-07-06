@@ -30,7 +30,7 @@ class SignUpState extends State<SignUp> {
     
   setState(() {
       signUpBloc.regImage = File(_pickedImage.path);
-      print('image: $signUpBloc.regImage');
+      print('image: ${signUpBloc.regImage}');
     });
     // _image;
     // String _email = signUpBloc.getEmail();
