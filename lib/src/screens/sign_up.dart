@@ -39,11 +39,15 @@ class SignUpState extends State<SignUp> {
   Future _uploadImage() async {
     StorageUploadTask uploadTask = _reference.putFile(signUpBloc.regImage);
     StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
-
     setState(() {
       _imageUploaded = true;
     });
     print('taskSnapshot: $taskSnapshot');
+    String _downloadAddress = await _reference.getDownloadURL();
+    setState(() {
+      _downloadImageURL = _downloadAddress;
+    });
+    print('imageurl: $_downloadImageURL');
   }
 
   // Future _downloadImageURL() async {
@@ -110,6 +114,10 @@ class SignUpState extends State<SignUp> {
                         _showSpinner = true;
                       });
                       _uploadImage();
+                      _imageUploaded == false ? print('progress') :
+                      setState(() {
+                        _showSpinner = false;
+                      });
                       // _downloadImageURL();
 
                     //   String _email = signUpBloc.getEmail();
