@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart' as Path; 
 import 'dart:async';
 import 'dart:io';
 import '../blocs/sign_up_bloc.dart';
@@ -23,7 +24,7 @@ class SignUpState extends State<SignUp> {
   String _downloadImageURL;
   bool _showSpinner = false; 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  StorageReference _reference = FirebaseStorage.instance.ref().child(signUpBloc.regImage.toString());
+  StorageReference _reference = FirebaseStorage.instance.ref().child('faces/${Path.basename(signUpBloc.regImage.path)}}');
 
   Future _getImage() async {
     var _pickedImage = await picker.getImage(source: ImageSource.camera);
