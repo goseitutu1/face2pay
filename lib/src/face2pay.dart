@@ -9,7 +9,6 @@ import 'screens/products.dart';
 import 'screens/cart.dart';
 import 'screens/check_out.dart';
 import 'screens/password_recovery.dart';
-import 'screens/reg_face.dart';
 import 'screens/transaction.dart';
 import 'screens/face_signIn.dart';
 
@@ -113,14 +112,6 @@ Route routes(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) {
           return PasswordRecovery();
-        }
-      );
-      break;
-
-      case '/registerface':
-      return MaterialPageRoute(
-        builder: (context) {
-          return RegisterFace();
         }
       );
       break;

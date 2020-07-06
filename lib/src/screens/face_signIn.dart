@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'dart:async';
 import 'dart:io';
 import '../blocs/sign_in_bloc.dart';
+import '../widgets/material_button.dart';
 
 class FaceSignIn extends StatefulWidget {
   FaceSignInState createState() {
@@ -45,6 +47,7 @@ class FaceSignInState extends State<FaceSignIn> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('FACIAL RECOGNITION',
         style: TextStyle(
@@ -61,17 +64,34 @@ class FaceSignInState extends State<FaceSignIn> {
         backgroundColor: Color(0xFFEB1555),
         child: Icon(Icons.add_a_photo,color: Colors.black)
       ),
-      body: Card(
+      body: ModalProgressHUD(
+        inAsyncCall: _showSpinner, 
+        child: Card(
         elevation: 5.0,
         margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Center(
           child: Column(
             children: <Widget>[
-              Text('Take a face picture'),
+              signinBloc.image == null ? Text('Take a face picture') : FileImage(signinBloc.image),
               SizedBox(height: 20.0),
+              signinBloc.image == null ? Container() : 
+              Button(
+                onPressed: () { 
+                  _uploadImage();
+                  setState(() {
+                    _showSpinner = true;
+                  });
+                  _imageUploaded == false ? print('progress') :
+                  setState(() {
+                    _showSpinner = false;
+                  });
+                },
+                description: 'verify face'
+              ),
             ],
           ),
         ),
+       ),
       ),
     );
   }
