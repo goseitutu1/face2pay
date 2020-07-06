@@ -24,8 +24,7 @@ class SignUpState extends State<SignUp> {
   String _downloadImageURL;
   bool _showSpinner = false; 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  StorageReference _reference = FirebaseStorage.instance.ref().child('faces/${Path.basename(signUpBloc.regImage.path)}}');
-
+ 
   Future _getImage() async {
     var _pickedImage = await picker.getImage(source: ImageSource.camera);
     
@@ -38,6 +37,7 @@ class SignUpState extends State<SignUp> {
   }
 
   Future _uploadImage() async {
+    StorageReference _reference = FirebaseStorage.instance.ref().child('faces/${Path.basename(signUpBloc.regImage.path)}}');
     StorageUploadTask uploadTask = _reference.putFile(signUpBloc.regImage);
     StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
     setState(() {
