@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import '../widgets/signin_face.dart';
 import '../blocs/sign_in_bloc.dart';
 import '../widgets/text_feild.dart';
-import '../widgets/facial_icon.dart';
 import '../widgets/material_button.dart';
 
 class SignIn extends StatefulWidget {
@@ -133,7 +133,7 @@ class SignInState extends State<SignIn> {
                     onTap: () async {
                       Navigator.pushNamed(context, '/facesignin');
                     },
-                    title: FacialIcon(description: 'Use facial recognition'),
+                    title: FacialRecognition(description: 'Use facial recognition'),
                   ),
                 ],
               ),
