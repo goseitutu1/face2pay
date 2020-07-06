@@ -46,13 +46,13 @@ class SignUpState extends State<SignUp> {
     print('taskSnapshot: $taskSnapshot');
   }
 
-  Future _downloadImageURL() async {
-    String _downloadAddress = await _reference.getDownloadURL();
+  // Future _downloadImageURL() async {
+  //   String _downloadAddress = await _reference.getDownloadURL();
 
-    setState(() {
-      _downloadImageURL = _downloadAddress;
-    });
-  }
+  //   setState(() {
+  //     _downloadImageURL = _downloadAddress;
+  //   });
+  // }
 
   Widget build(BuildContext context){
     return Scaffold(
@@ -110,7 +110,7 @@ class SignUpState extends State<SignUp> {
                         _showSpinner = true;
                       });
                       _uploadImage();
-                      _downloadImageURL();
+                      // _downloadImageURL();
 
                     //   String _email = signUpBloc.getEmail();
                     //   String _password = signUpBloc.getPassword();
