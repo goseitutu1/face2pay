@@ -67,40 +67,40 @@ class FaceSignInState extends State<FaceSignIn> {
       body: ModalProgressHUD(
         inAsyncCall: _showSpinner, 
         child: Card(
-        elevation: 5.0,
-        margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-        child: Container(
-          margin: EdgeInsets.fromLTRB(30.0,30.0,30.0,30.0),
-          width: 300.0,
-          height: 20.0,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-            border: Border.all(width: 1.0, color: Colors.grey)
-          ),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                signinBloc.image == null ? Text('Take a face picture') : FileImage(signinBloc.image),
-                SizedBox(height: 20.0),
-                signinBloc.image == null ? Container() : 
-                Button(
-                  onPressed: () { 
-                    _uploadImage();
-                    setState(() {
-                      _showSpinner = true;
-                    });
-                    _imageUploaded == false ? print('progress') :
-                    setState(() {
-                      _showSpinner = false;
-                    });
-                  },
-                  description: 'verify face'
-                ),
-              ],
+          margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+          elevation: 5.0,
+          child: Container(
+            margin: EdgeInsets.fromLTRB(30.0,30.0,30.0,30.0),
+            width: 300.0,
+            height: 20.0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20.0),
+              border: Border.all(width: 1.0, color: Colors.grey)
+            ),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  signinBloc.image == null ? Text('Take a face picture') : FileImage(signinBloc.image),
+                  SizedBox(height: 20.0),
+                  signinBloc.image == null ? Container() : 
+                  Button(
+                    onPressed: () { 
+                      _uploadImage();
+                      setState(() {
+                        _showSpinner = true;
+                      });
+                      _imageUploaded == false ? print('progress') :
+                      setState(() {
+                        _showSpinner = false;
+                      });
+                    },
+                    description: 'verify face'
+                  ),
+                ],
+              ),
             ),
           ),
-         ),
         ),
       ),
     );
