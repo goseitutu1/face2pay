@@ -66,9 +66,9 @@ class FaceSignInState extends State<FaceSignIn> {
       ),
       body: ModalProgressHUD(
         inAsyncCall: _showSpinner, 
-        child: Card(
-          margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-          elevation: 5.0,
+        // child: Card(
+        //   margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+        //   elevation: 5.0,
           child: Container(
             margin: EdgeInsets.fromLTRB(30.0,30.0,30.0,30.0),
             width: 300.0,
@@ -83,7 +83,7 @@ class FaceSignInState extends State<FaceSignIn> {
                 children: <Widget>[
                   signinBloc.image == null ? Text('Take a face picture') : FileImage(signinBloc.image),
                   SizedBox(height: 20.0),
-                  signinBloc.image == null ? Container() : 
+                  signinBloc.image == null ? SizedBox() : 
                   Button(
                     onPressed: () { 
                       _uploadImage();
@@ -101,7 +101,7 @@ class FaceSignInState extends State<FaceSignIn> {
               ),
             ),
           ),
-        ),
+        //),
       ),
     );
   }
