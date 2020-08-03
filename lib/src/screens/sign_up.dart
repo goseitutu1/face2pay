@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -115,42 +115,42 @@ class SignUpState extends State<SignUp> {
                         _showSpinner = false;
                       });
 
-                      // String _email = signUpBloc.getEmail();
-                      // String _password = signUpBloc.getPassword();
-                      // String _confirmPassword = signUpBloc.getConfirmPassword();
-                      // if(_password == _confirmPassword){
-                      // setState(() {
-                      //   _showSpinner = true;
-                      // });
-                      // try{
-                      //   final _auth = FirebaseAuth.instance;
-                      //   final response = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
-                      //   if(response != null){
-                      //     Navigator.pushNamed(context, '/home');
-                      //   }
-                      //   setState((){
-                      //     _showSpinner = false;
-                      //   });
-                      // }
-                      // catch(e){
-                      //   setState((){
-                      //     _showSpinner = false;
-                      //   });
-                      //   String errorMessage = e.toString().substring(24,44);
-                      //   _scaffoldKey.currentState.showSnackBar(
-                      //     SnackBar(
-                      //       backgroundColor: Colors.red,
-                      //       content: Text(
-                      //         '$errorMessage',
-                      //         style: TextStyle(
-                      //           color: Colors.black,
-                      //           fontWeight: FontWeight.bold,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   );
-                      // }
-                    // }
+                      String _email = signUpBloc.getEmail();
+                      String _password = signUpBloc.getPassword();
+                      String _confirmPassword = signUpBloc.getConfirmPassword();
+                      if(_password == _confirmPassword){
+                      setState(() {
+                        _showSpinner = true;
+                      });
+                      try{
+                        final _auth = FirebaseAuth.instance;
+                        final response = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
+                        if(response != null){
+                          Navigator.pushNamed(context, '/home');
+                        }
+                        setState((){
+                          _showSpinner = false;
+                        });
+                      }
+                      catch(e){
+                        setState((){
+                          _showSpinner = false;
+                        });
+                        String errorMessage = e.toString().substring(24,44);
+                        _scaffoldKey.currentState.showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.red,
+                            content: Text(
+                              '$errorMessage',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                    }
                     },
                   ),
                 ],

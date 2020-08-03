@@ -70,20 +70,20 @@ class FaceSignInState extends State<FaceSignIn> {
         //   margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         //   elevation: 5.0,
           child: Container(
+            padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
             margin: EdgeInsets.fromLTRB(30.0,30.0,30.0,30.0),
             width: 300.0,
-            height: 20.0,
+            height: 200.0,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20.0),
               border: Border.all(width: 1.0, color: Colors.grey)
             ),
-            child: Center(
               child: Column(
                 children: <Widget>[
-                  signinBloc.image == null ? Text('Take a face picture') : FileImage(signinBloc.image),
+                  signinBloc.image == null ? Text('Take a face picture', textAlign: TextAlign.center,) : Image(image: FileImage(signinBloc.image)),
                   SizedBox(height: 20.0),
-                  signinBloc.image == null ? SizedBox() : 
+                  signinBloc.image == null ? Container() : 
                   Button(
                     onPressed: () { 
                       _uploadImage();
@@ -100,7 +100,6 @@ class FaceSignInState extends State<FaceSignIn> {
                 ],
               ),
             ),
-          ),
         //),
       ),
     );
